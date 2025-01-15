@@ -1,0 +1,44 @@
+name: dockercompose16834252461896997435
+services:
+  onelearn.api:
+    build:
+      context: C:\Project\Test\Test\Backend\OneLearn
+      dockerfile: OneLearn.Api/Dockerfile
+    container_name: onelearn.api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "5000"
+    image: onelearnapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5000
+        published: "5000"
+        protocol: tcp
+      - mode: ingress
+        target: 5000
+        protocol: tcp
+  products.database:
+    container_name: onelearn.database
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_DATABASE: Onelearn
+      SA_PASSWORD: Warriornub95@@
+    image: mssql:latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5432
+        published: "5432"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Project\Test\Test\Backend\OneLearn\.containers\onelearn-db
+        target: /var/opt/mssql
+        bind:
+          create_host_path: true
+networks:
+  default:
+    name: dockercompose16834252461896997435_default

@@ -1,0 +1,12 @@
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Domain\bin\Release\net8.0\OneLearn.Domain.deps.json
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Domain\bin\Release\net8.0\OneLearn.Domain.dll
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Domain\bin\Release\net8.0\OneLearn.Domain.pdb
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.AssemblyInfoInputs.cache
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.AssemblyInfo.cs
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.csproj.CoreCompileInputs.cache
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.sourcelink.json
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.dll
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Domain\obj\Release\net8.0\refint\OneLearn.Domain.dll
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.pdb
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Domain\obj\Release\net8.0\ref\OneLearn.Domain.dll

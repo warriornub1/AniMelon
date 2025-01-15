@@ -1,0 +1,16 @@
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\bin\Release\net8.0\OneLearn.Application.deps.json
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\bin\Release\net8.0\OneLearn.Application.dll
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\bin\Release\net8.0\OneLearn.Application.pdb
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\bin\Release\net8.0\OneLearn.Domain.dll
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\bin\Release\net8.0\OneLearn.Domain.pdb
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\obj\Release\net8.0\OneLearn.Application.csproj.AssemblyReference.cache
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\obj\Release\net8.0\OneLearn.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\obj\Release\net8.0\OneLearn.Application.AssemblyInfoInputs.cache
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\obj\Release\net8.0\OneLearn.Application.AssemblyInfo.cs
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\obj\Release\net8.0\OneLearn.Application.csproj.CoreCompileInputs.cache
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\obj\Release\net8.0\OneLearn.Application.sourcelink.json
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\obj\Release\net8.0\OneLearn.4B405362.Up2Date
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\obj\Release\net8.0\OneLearn.Application.dll
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\obj\Release\net8.0\refint\OneLearn.Application.dll
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\obj\Release\net8.0\OneLearn.Application.pdb
+C:\Project\Test\Test\Backend\OneLearn\OneLearn.Application\obj\Release\net8.0\ref\OneLearn.Application.dll

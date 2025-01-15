@@ -1,0 +1,19 @@
+name: dockercompose16834252461896997435
+services:
+  onelearn.api:
+    build:
+      context: C:\Project\Test\Test\Backend\OneLearn
+      dockerfile: OneLearn.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+    image: onelearnapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+networks:
+  default:
+    name: dockercompose16834252461896997435_default

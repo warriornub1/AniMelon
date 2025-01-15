@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "F5e8H7FeHQZo9kl24BQi9IEMbHh+g81p0aEnapbk7wU=",
+  "Source": "OneLearn.Api",
+  "BasePath": "_content/OneLearn.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
