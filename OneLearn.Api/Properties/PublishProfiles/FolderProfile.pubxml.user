@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\PokiMelon\PokiMelon-Backend\OneLearn.Api\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2025-01-20T13:27:05.0749317Z||;True|2025-01-20T21:18:26.5539847+08:00||;True|2025-01-20T20:57:14.3450995+08:00||;True|2025-01-20T20:51:58.2221275+08:00||;True|2025-01-20T20:49:44.8925257+08:00||;True|2025-01-20T20:43:18.0168813+08:00||;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="SqlConnection">
+      <Value>Server=localhost\MSSQLSERVER01%3bDatabase=OneLearn%3bTrusted_Connection=True%3bTrustServerCertificate=True</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
