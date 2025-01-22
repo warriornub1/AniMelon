@@ -1,14 +1,22 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER_HOST = 'unix:///var/run/docker.sock'
-    }
-
     stages {
-        stage('Test Docker Access') {
+        stage('Build') {
+            agent {
+                docker {
+                    image 'mcr.microsoft.com/dotnet/sdk:8.0'
+                    reuseNode true
+                }
+            }
             steps {
-                sh 'docker info'
+                sh '''
+                    ls -la
+                    dotnet --version
+                    dotnet restore
+                    dotnet build --configuration Release
+                    ls -la
+                '''
             }
         }
     }
