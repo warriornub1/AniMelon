@@ -5,9 +5,14 @@ pipeline {
         }
     }
 
+    environment {
+        DOTNET_CLI_HOME = '/tmp/.dotnet'
+    }
+
     stages {
         stage('Restore') {
             steps {
+                sh 'mkdir -p $DOTNET_CLI_HOME' // Ensure the directory exists
                 sh 'dotnet restore'
             }
         }
