@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOTNET_CLI_HOME = '/tmp/.dotnet'
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE = 'true'
-        DEPLOY_PATH = 'C:\inetpub\wwwroot\restapi' // Path on the host machine
+        DEPLOY_PATH = 'C://inetpub//wwwroot//restapi' // Path on the host machine
     }
 
     stages {
