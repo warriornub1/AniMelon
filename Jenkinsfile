@@ -8,6 +8,7 @@ pipeline {
     environment {
         DOTNET_CLI_HOME = '/tmp/.dotnet'
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE = 'true'
+        DEPLOY_PATH = 'C:\\Users\\kahyong.chua\\Downloads' // Target directory on the local machine
     }
 
     stages {
@@ -31,17 +32,15 @@ pipeline {
                 sh 'echo "Published files are located at: $(pwd)/published"'
             }
         }
-        stage('Copy to Local') {
+        stage('Deploy to Local Drive') {
             steps {
                 script {
-                    // Get the published file location (from the container)
-                    def publishedFilesPath = "/var/jenkins_home/workspace/learn-jenkins-app/published"
-                    
-                    // Copy files to the local Downloads folder (running on the Jenkins host)
-                    // Ensure the 'Downloads' folder exists on the Jenkins host system
-                    sh """
-                        mkdir -p /host/publish_folder
-                        cp -r ${publishedFilesPath}/* C:/Users/kahyong.chua/Downloads
+                    // Use PowerShell to copy files to the local deployment directory
+                    powershell """
+                    if (!(Test-Path -Path '${DEPLOY_PATH}')) {
+                        New-Item -ItemType Directory -Path '${DEPLOY_PATH}'
+                    }
+                    Copy-Item -Path 'publish\\*' -Destination '${DEPLOY_PATH}' -Recurse -Force
                     """
                 }
             }
