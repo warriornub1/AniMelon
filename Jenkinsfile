@@ -2,14 +2,14 @@ pipeline {
     agent {
         docker {
             image 'mcr.microsoft.com/dotnet/sdk:8.0'
-            args '-v /c/Users/kahyong.chua/Downloads:/mnt/host_downloads' // Mount target directory into the container
+            args '-v /c/Users/kahyong.chua/Downloads:/mnt/Downloads' // Mount the target directory
         }
     }
 
     environment {
         DOTNET_CLI_HOME = '/tmp/.dotnet'
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE = 'true'
-        DEPLOY_PATH = '/mnt/host_downloads' // Mounted path within the container
+        DEPLOY_PATH = '/mnt/Downloads' // Path inside the container mapped to the host folder
     }
 
     stages {
@@ -35,10 +35,17 @@ pipeline {
         }
         stage('Deploy to Local Drive') {
             steps {
-                bat 'xcopy /var/jenkins_home/workspace/learn-jenkins-app/published C:\\Users\\kahyong.chua\\Downloads /e /y /i /r'
+                sh """
+                if [ ! -d "${DEPLOY_PATH}" ]; then
+                    mkdir -p "${DEPLOY_PATH}"
+                fi
+                cp -r ./published/* "${DEPLOY_PATH}/"
+                echo "Files have been copied to ${DEPLOY_PATH}"
+                """
             }
         }
     }
+
     post {
         always {
             // Clean up the workspace
