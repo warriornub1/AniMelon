@@ -1,4 +1,5 @@
 pipeline {
+    agent any  // This means the pipeline can run on any available agent
 
     environment {
         DOTNET_CLI_HOME = '/tmp/.dotnet'
