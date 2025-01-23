@@ -40,7 +40,7 @@ pipeline {
                 echo "Listing contents of /mnt/Downloads before copying"
                 ls -la /mnt/Downloads
                 echo "Copying files to ${DEPLOY_PATH}"
-                cp -r ./published/* "${DEPLOY_PATH}/"
+                cp -r ./published/* "/c/Users/kahyong.chua/Downloads/"
                 echo "Listing contents of /mnt/Downloads after copying"
                 ls -la /mnt/Downloads
                 """
