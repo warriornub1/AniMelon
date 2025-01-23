@@ -25,34 +25,23 @@ pipeline {
         }
         stage('Publish') {
             steps {
-                sh 'dotnet publish --configuration Release --output ./published'
+                sh """
+                # Publish the project directly to the mapped folder
+                dotnet publish --configuration Release --output ${DEPLOY_PATH}
+                """
             }
         }
         stage('Print Publish Location') {
             steps {
-                sh 'echo "Published files are located at: $(pwd)/published"'
-                sh 'echo "@@@@@@@@@@@@@@@@@@@@@@@@@@"'
-                sh 'ls -l /mnt/Downloads'
-                sh 'echo "Path in container: /mnt/Downloads"'
-            }
-        }
-        stage('Deploy to Local Drive') {
-            steps {
-
-                echo "Copying files to ${DEPLOY_PATH}"
-                
-                // Copy files to /mnt/Downloads (mapped to the host directory)
-                sh """
-                cp -r ./published/* "${DEPLOY_PATH}/"
-                """
-                
+                sh 'echo "Published files are located in: ${DEPLOY_PATH}"'
+                sh 'ls -l ${DEPLOY_PATH}'
             }
         }
     }
 
     post {
         always {
-            // Clean up the workspace
+            // Clean up the workspace inside Jenkins
             cleanWs()
         }
     }
