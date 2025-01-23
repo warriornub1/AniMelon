@@ -37,11 +37,12 @@ pipeline {
         stage('Deploy to Local Drive') {
             steps {
                 sh """
-                if [ ! -d "${DEPLOY_PATH}" ]; then
-                    mkdir -p "${DEPLOY_PATH}"
-                fi
+                echo "Listing contents of /mnt/Downloads before copying"
+                ls -la /mnt/Downloads
+                echo "Copying files to ${DEPLOY_PATH}"
                 cp -r ./published/* "${DEPLOY_PATH}/"
-                echo "Files have been copied to ${DEPLOY_PATH}"
+                echo "Listing contents of /mnt/Downloads after copying"
+                ls -la /mnt/Downloads
                 """
             }
         }
