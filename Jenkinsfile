@@ -13,7 +13,7 @@ pipeline {
                 script {
                     echo "Restoring dependencies..."
                 }
-                sh 'dotnet restore'
+                bat 'dotnet restore'
             }
         }
         stage('Build') {
@@ -21,7 +21,7 @@ pipeline {
                 script {
                     echo "Building project in Release mode..."
                 }
-                sh 'dotnet build --configuration Release'
+                bat 'dotnet build --configuration Release'
             }
         }
         stage('Publish') {
@@ -29,7 +29,7 @@ pipeline {
                 script {
                     echo "Publishing to ${DEPLOY_PATH}..."
                 }
-                sh """
+                bat """
                 # Publish the project directly to the specified folder
                 dotnet publish --configuration Release --output "${DEPLOY_PATH}"
                 """
@@ -40,7 +40,7 @@ pipeline {
                 script {
                     echo "Checking published files at ${DEPLOY_PATH}..."
                 }
-                sh 'ls -l "${DEPLOY_PATH}"'
+                bat 'dir "${DEPLOY_PATH}"'
             }
         }
     }
