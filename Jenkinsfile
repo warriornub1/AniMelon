@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'mcr.microsoft.com/dotnet/sdk:8.0'
-            args '-v /c/Users/kahyong.chua/Downloads:/mnt/Downloads --user root'
+            args '-v /host_mnt/c/Users/kahyong.chua/Downloads:/mnt/Downloads --user root'
         }
     }
 
