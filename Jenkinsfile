@@ -16,9 +16,16 @@ pipeline {
                 sh 'dotnet restore'
             }
         }
+        
         stage('Build') {
             steps {
                 sh 'dotnet build --configuration Release'
+            }
+        }
+        
+        stage('Publish') {
+            steps {
+                sh 'dotnet publish --configuration Release --output ./published'
             }
         }
     }
