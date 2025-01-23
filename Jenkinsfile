@@ -33,15 +33,24 @@ pipeline {
         }
         stage('Copy to Local') {
             steps {
-                // Copy files from the container to the local system using docker cp
                 script {
-                    def containerId = sh(script: "docker ps -q -f ancestor=mcr.microsoft.com/dotnet/sdk:8.0", returnStdout: true).trim()
-                    if (containerId) {
-                        // Ensure the directory exists in your Downloads
-                        sh "docker cp ${containerId}:/workspace/published/. C:/Users/kahyong.chua/Downloads"
-                    }
+                    // Get the published file location (from the container)
+                    def publishedFilesPath = "/var/jenkins_home/workspace/learn-jenkins-app/published"
+                    
+                    // Copy files to the local Downloads folder (running on the Jenkins host)
+                    // Ensure the 'Downloads' folder exists on the Jenkins host system
+                    sh """
+                        mkdir -p /host/publish_folder
+                        cp -r ${publishedFilesPath}/* C:/Users/kahyong.chua/Downloads
+                    """
                 }
             }
+        }
+    }
+    post {
+        always {
+            // Clean up the workspace
+            cleanWs()
         }
     }
 }
