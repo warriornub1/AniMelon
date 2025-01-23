@@ -2,13 +2,14 @@ pipeline {
     agent {
         docker {
             image 'mcr.microsoft.com/dotnet/sdk:8.0'
+            args '-v /c/Users/kahyong.chua/Downloads:/mnt/host_downloads' // Mount Downloads folder
         }
     }
 
     environment {
         DOTNET_CLI_HOME = '/tmp/.dotnet'
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE = 'true'
-        DEPLOY_PATH = 'C:\\Users\\kahyong.chua\\Downloads' // Target directory on the local machine
+        DEPLOY_PATH = '/mnt/host_downloads' // Path inside the container mapped to Downloads
     }
 
     stages {
@@ -32,24 +33,23 @@ pipeline {
                 sh 'echo "Published files are located at: $(pwd)/published"'
             }
         }
-        stage('Deploy to Local Drive') {
+        stage('Deploy to Downloads Folder') {
             steps {
-                script {
-                    // Use PowerShell to copy files to the local deployment directory
-                    powershell """
-                    if (!(Test-Path -Path '${DEPLOY_PATH}')) {
-                        New-Item -ItemType Directory -Path '${DEPLOY_PATH}'
-                    }
-                    Copy-Item -Path 'publish\\*' -Destination '${DEPLOY_PATH}' -Recurse -Force
-                    """
-                }
+                sh """
+                echo "Deploying files to ${DEPLOY_PATH}..."
+                if [ ! -d "${DEPLOY_PATH}" ]; then
+                    echo "Creating deployment directory at ${DEPLOY_PATH}."
+                    mkdir -p "${DEPLOY_PATH}"
+                fi
+                cp -r ./published/* "${DEPLOY_PATH}/"
+                echo "Files have been successfully copied to ${DEPLOY_PATH}."
+                """
             }
         }
     }
     post {
         always {
-            // Clean up the workspace
-            cleanWs()
+            cleanWs() // Clean up workspace after execution
         }
     }
 }
