@@ -35,12 +35,7 @@ pipeline {
         }
         stage('Deploy to Local Drive') {
             steps {
-                sh """
-                if [ ! -d "${DEPLOY_PATH}" ]; then
-                    mkdir -p "${DEPLOY_PATH}"
-                fi
-                cp -r ./published/* "${DEPLOY_PATH}/"
-                """
+                bat 'xcopy ./published/ C:/Users/kahyong.chua/Downloads /e /y /i /r'
             }
         }
     }
