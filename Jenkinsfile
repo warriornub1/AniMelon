@@ -31,6 +31,7 @@ pipeline {
         stage('Print Publish Location') {
             steps {
                 sh 'echo "Published files are located at: $(pwd)/published"'
+                sh 'echo "@@@@@@@@@@@@@@@@@@@@@@@@@@"'
                 sh 'ls -l /mnt/Downloads'
                 sh 'echo "Path in container: /mnt/Downloads"'
             }
