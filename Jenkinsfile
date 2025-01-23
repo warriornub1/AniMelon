@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOTNET_CLI_HOME = '/tmp/.dotnet'
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE = 'true'
-        DEPLOY_PATH = 'C:/Users/kahyong.chua/Downloads' // Path on the host machine
+        DEPLOY_PATH = 'C:/Users/kahyong.chua/Downloads/publish' // Path on the host machine
     }
 
     stages {
@@ -40,7 +40,6 @@ pipeline {
                 script {
                     echo "Checking published files at ${DEPLOY_PATH}..."
                 }
-                bat 'dir "${DEPLOY_PATH}"'
             }
         }
     }
