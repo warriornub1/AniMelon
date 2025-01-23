@@ -37,14 +37,7 @@ pipeline {
         }
         stage('Deploy to Local Drive') {
             steps {
-                // Check contents of /mnt/Downloads before copying
-                sh 'echo "Listing contents of /mnt/Downloads before copying"'
-                sh 'ls -la /mnt/Downloads'
-                
-                // Check if files exist in the published directory
-                sh 'echo "Listing contents of ./published before copying"'
-                sh 'ls -la ./published'
-                
+
                 echo "Copying files to ${DEPLOY_PATH}"
                 
                 // Copy files to /mnt/Downloads (mapped to the host directory)
@@ -52,9 +45,6 @@ pipeline {
                 cp -r ./published/* "${DEPLOY_PATH}/"
                 """
                 
-                // Check contents of /mnt/Downloads after copying
-                sh 'echo "Listing contents of /mnt/Downloads after copying"'
-                sh 'ls -la /mnt/Downloads'
             }
         }
     }
