@@ -32,18 +32,29 @@ pipeline {
             steps {
                 sh 'echo "Published files are located at: $(pwd)/published"'
                 sh "echo Deploying to : ${DEPLOY_PATH}"
+                sh 'echo "Host Downloads directory: /c/Users/kahyong.chua/Downloads"' // Added step to verify host path
             }
         }
         stage('Deploy to Local Drive') {
             steps {
-                sh """
-                echo "Listing contents of /mnt/Downloads before copying"
-                ls -la /mnt/Downloads
+                // Check contents of /mnt/Downloads before copying
+                sh 'echo "Listing contents of /mnt/Downloads before copying"'
+                sh 'ls -la /mnt/Downloads'
+                
+                // Check if files exist in the published directory
+                sh 'echo "Listing contents of ./published before copying"'
+                sh 'ls -la ./published'
+                
                 echo "Copying files to ${DEPLOY_PATH}"
+                
+                // Copy files to /mnt/Downloads (mapped to the host directory)
+                sh """
                 cp -r ./published/* "${DEPLOY_PATH}/"
-                echo "Listing contents of /mnt/Downloads after copying"
-                ls -la /mnt/Downloads
                 """
+                
+                // Check contents of /mnt/Downloads after copying
+                sh 'echo "Listing contents of /mnt/Downloads after copying"'
+                sh 'ls -la /mnt/Downloads'
             }
         }
     }
