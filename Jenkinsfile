@@ -35,7 +35,7 @@ pipeline {
         }
         stage('Deploy to Local Drive') {
             steps {
-                bat 'xcopy .\\published C:\\Users\\kahyong.chua\\Downloads /e /y /i /r'
+                bat 'xcopy /var/jenkins_home/workspace/learn-jenkins-app/published C:\\Users\\kahyong.chua\\Downloads /e /y /i /r'
             }
         }
     }
