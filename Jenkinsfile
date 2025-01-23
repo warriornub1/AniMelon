@@ -31,6 +31,7 @@ pipeline {
         stage('Print Publish Location') {
             steps {
                 sh 'echo "Published files are located at: $(pwd)/published"'
+                sh "echo Deploying to : ${DEPLOY_PATH}"
             }
         }
         stage('Deploy to Local Drive') {
