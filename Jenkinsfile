@@ -9,21 +9,17 @@ pipeline {
                     reuseNode true
                 }
             }
+        stage('Restore') {
             steps {
-                sh '''
-                    stage('Restore Dependencies') {
-                        steps {
-                            sh 'dotnet restore'
-                        }
-                    }
-            
-                    stage('Build Project') {
-                        steps {
-                            sh 'dotnet build --configuration Release'
-                        }
-                    }
-                '''
+                sh 'dotnet restore'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'dotnet build --configuration Release'
+                }
             }
         }
     }
 }
+
