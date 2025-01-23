@@ -31,8 +31,8 @@ pipeline {
         stage('Print Publish Location') {
             steps {
                 sh 'echo "Published files are located at: $(pwd)/published"'
-                sh "echo Deploying to : ${DEPLOY_PATH}"
-                sh 'echo "Host Downloads directory: /c/Users/kahyong.chua/Downloads"' // Added step to verify host path
+                sh 'ls -l /mnt/Downloads'
+                sh 'echo "Path in container: /mnt/Downloads"'
             }
         }
         stage('Deploy to Local Drive') {
