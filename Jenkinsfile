@@ -2,14 +2,13 @@ pipeline {
     agent {
         docker {
             image 'mcr.microsoft.com/dotnet/sdk:8.0'
-            args '-v /host_mnt/c/Users/kahyong.chua/Downloads:/mnt/Downloads --user root'
         }
     }
 
     environment {
         DOTNET_CLI_HOME = '/tmp/.dotnet'
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE = 'true'
-        DEPLOY_PATH = '/mnt/Downloads' // Path inside the container mapped to the host folder
+        DEPLOY_PATH = 'C:/Users/kahyong.chua/Downloads' // Path inside the container mapped to the host folder
     }
 
     stages {
@@ -36,13 +35,6 @@ pipeline {
                 sh 'echo "Published files are located in: ${DEPLOY_PATH}"'
                 sh 'ls -l ${DEPLOY_PATH}'
             }
-        }
-    }
-
-    post {
-        always {
-            // Clean up the workspace inside Jenkins
-            cleanWs()
         }
     }
 }
