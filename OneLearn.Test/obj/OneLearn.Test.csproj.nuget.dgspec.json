@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\PokiMelon\\OneLearn.Test\\OneLearn.Test.csproj": {}
+    "C:\\AniMelon\\OneLearn.Test\\OneLearn.Test.csproj": {}
   },
   "projects": {
-    "C:\\PokiMelon\\OneLearn.Test\\OneLearn.Test.csproj": {
+    "C:\\AniMelon\\OneLearn.Test\\OneLearn.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PokiMelon\\OneLearn.Test\\OneLearn.Test.csproj",
+        "projectUniqueName": "C:\\AniMelon\\OneLearn.Test\\OneLearn.Test.csproj",
         "projectName": "OneLearn.Test",
-        "projectPath": "C:\\PokiMelon\\OneLearn.Test\\OneLearn.Test.csproj",
-        "packagesPath": "C:\\Users\\yongy\\.nuget\\packages\\",
-        "outputPath": "C:\\PokiMelon\\OneLearn.Test\\obj\\",
+        "projectPath": "C:\\AniMelon\\OneLearn.Test\\OneLearn.Test.csproj",
+        "packagesPath": "C:\\Users\\kahyong.chua\\.nuget\\packages\\",
+        "outputPath": "C:\\AniMelon\\OneLearn.Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\yongy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kahyong.chua\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -79,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.405/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

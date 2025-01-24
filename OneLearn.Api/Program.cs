@@ -66,7 +66,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
 {
-    option.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));
+    option.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnectionWork"));
 });
 
 builder.Services.AddMemoryCache();

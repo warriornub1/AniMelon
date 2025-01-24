@@ -908,10 +908,7 @@
           "OneLearn.Domain": "1.0.0"
         },
         "runtime": {
-          "OneLearn.Application.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "OneLearn.Application.dll": {}
         }
       },
       "OneLearn.Domain/1.0.0": {
@@ -921,10 +918,7 @@
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
-          "OneLearn.Domain.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "OneLearn.Domain.dll": {}
         }
       },
       "OneLearn.Infrastructure/1.0.0": {
@@ -938,10 +932,7 @@
           "OneLearn.Domain": "1.0.0"
         },
         "runtime": {
-          "OneLearn.Infrastructure.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "OneLearn.Infrastructure.dll": {}
         }
       }
     }

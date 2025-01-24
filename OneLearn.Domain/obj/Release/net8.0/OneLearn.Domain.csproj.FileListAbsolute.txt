@@ -23,3 +23,16 @@ C:\PokiMelon\PokiMelon-Backend\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domai
 C:\PokiMelon\PokiMelon-Backend\OneLearn.Domain\obj\Release\net8.0\refint\OneLearn.Domain.dll
 C:\PokiMelon\PokiMelon-Backend\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.pdb
 C:\PokiMelon\PokiMelon-Backend\OneLearn.Domain\obj\Release\net8.0\ref\OneLearn.Domain.dll
+C:\AniMelon\OneLearn.Domain\bin\Release\net8.0\OneLearn.Domain.deps.json
+C:\AniMelon\OneLearn.Domain\bin\Release\net8.0\OneLearn.Domain.dll
+C:\AniMelon\OneLearn.Domain\bin\Release\net8.0\OneLearn.Domain.pdb
+C:\AniMelon\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.csproj.AssemblyReference.cache
+C:\AniMelon\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\AniMelon\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.AssemblyInfoInputs.cache
+C:\AniMelon\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.AssemblyInfo.cs
+C:\AniMelon\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.csproj.CoreCompileInputs.cache
+C:\AniMelon\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.sourcelink.json
+C:\AniMelon\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.dll
+C:\AniMelon\OneLearn.Domain\obj\Release\net8.0\refint\OneLearn.Domain.dll
+C:\AniMelon\OneLearn.Domain\obj\Release\net8.0\OneLearn.Domain.pdb
+C:\AniMelon\OneLearn.Domain\obj\Release\net8.0\ref\OneLearn.Domain.dll

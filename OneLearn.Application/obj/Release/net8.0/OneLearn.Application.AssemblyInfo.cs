@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OneLearn.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc50a40ec7e59c841d085ba43b93182b56da496c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6fcf88411d59a3ad69b07f06261841686d2fddaf")]
 [assembly: System.Reflection.AssemblyProductAttribute("OneLearn.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OneLearn.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
