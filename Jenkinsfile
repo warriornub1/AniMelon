@@ -1,5 +1,5 @@
 pipeline {
-    agent any  // This means the pipeline can run on any available agent
+    agent any
 
     environment {
         DOTNET_CLI_HOME = '/tmp/.dotnet'
@@ -8,6 +8,15 @@ pipeline {
     }
 
     stages {
+        stage('Stop IIS') {
+            steps {
+                script {
+                    echo "Stopping IIS server..."
+                    bat 'iisreset /stop' // Stop IIS
+                }
+            }
+        }
+        
         stage('Restore') {
             steps {
                 script {
@@ -16,6 +25,7 @@ pipeline {
                 bat 'dotnet restore' // Restore dependencies
             }
         }
+        
         stage('Build') {
             steps {
                 script {
@@ -24,16 +34,31 @@ pipeline {
                 bat 'dotnet build --configuration Release' // Build only
             }
         }
+        
         stage('Publish') {
             steps {
                 script {
                     echo "Publishing project to ${DEPLOY_PATH}..."
                 }
                 bat """
-                    dotnet publish --configuration Release --framework net8.0 --output "${DEPLOY_PATH}"
+                dotnet publish --configuration Release \
+                --framework net8.0 \
+                --output "${DEPLOY_PATH}" \
+                /p:PublishSingleFile=false \
+                /p:SelfContained=false
                 """
             }
         }
+        
+        stage('Start IIS') {
+            steps {
+                script {
+                    echo "Starting IIS server..."
+                    bat 'iisreset /start' // Start IIS
+                }
+            }
+        }
+
         stage('Print Publish Location') {
             steps {
                 script {
