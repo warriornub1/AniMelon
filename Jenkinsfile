@@ -21,7 +21,11 @@ pipeline {
                 script {
                     echo "Building project in Release mode..."
                 }
-                bat 'dotnet build --configuration Release'
+                dotnet publish --configuration Release \
+               --framework net8.0 \
+               --output "${DEPLOY_PATH}" \
+               /p:PublishSingleFile=false \
+               /p:SelfContained=false'
             }
         }
         stage('Publish') {
