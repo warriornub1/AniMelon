@@ -43,4 +43,13 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            script {
+                echo "Cleaning up workspace..."
+            }
+            cleanWs() // This will clear the workspace at the end of the pipeline
+        }
+    }
 }
