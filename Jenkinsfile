@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOTNET_CLI_HOME = '/tmp/.dotnet'
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE = 'true'
-        DEPLOY_PATH = 'C:\\inetpub\\wwwroot\\restapi' // Correct Windows path
+        DEPLOY_PATH = "C:\\inetpub\\wwwroot\\restapi" // Windows path
     }
 
     stages {
@@ -13,13 +13,21 @@ pipeline {
                 script {
                     echo "Restoring dependencies..."
                 }
-                bat 'dotnet restore' // Restore command should work
+                bat 'dotnet restore' // Restore dependencies
             }
         }
         stage('Build') {
             steps {
                 script {
                     echo "Building project in Release mode..."
+                }
+                bat 'dotnet build --configuration Release' // Build only
+            }
+        }
+        stage('Publish') {
+            steps {
+                script {
+                    echo "Publishing project to ${DEPLOY_PATH}..."
                 }
                 bat """
                 dotnet publish --configuration Release \
@@ -30,22 +38,12 @@ pipeline {
                 """
             }
         }
-        stage('Publish') {
-            steps {
-                script {
-                    echo "Publishing to ${DEPLOY_PATH}..."
-                }
-                bat """
-                dotnet publish --configuration Release --output "${DEPLOY_PATH}"
-                """
-            }
-        }
         stage('Print Publish Location') {
             steps {
                 script {
                     echo "Checking published files at ${DEPLOY_PATH}..."
                 }
-                bat "dir ${DEPLOY_PATH}" // Check files at the path
+                bat "dir ${DEPLOY_PATH}" // Verify output
             }
         }
     }
@@ -55,7 +53,7 @@ pipeline {
             script {
                 echo "Cleaning up workspace..."
             }
-            cleanWs() // This will clear the workspace at the end of the pipeline
+            cleanWs() // Cleanup
         }
     }
 }
