@@ -30,7 +30,7 @@ pipeline {
                     echo "Publishing project to ${DEPLOY_PATH}..."
                 }
                 bat """
-                    dotnet publish --configuration Release --framework net8.0 --output "${DEPLOY_PATH}" /p:PublishReadyToRun=true /p:PublishTrimmed=false /p:SelfContained=false
+                    dotnet publish --configuration Release --framework net8.0 --output "${DEPLOY_PATH}"
                 """
             }
         }
