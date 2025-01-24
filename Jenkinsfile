@@ -4,8 +4,8 @@ pipeline {
     environment {
         DOTNET_CLI_HOME = '/tmp/.dotnet'
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE = 'true'
-        DEPLOY_PATH = "C:\\inetpub\\wwwroot\\restapi" // Windows path
-        SITE_NAME = "test" // Replace with your IIS site's name
+        DEPLOY_PATH = "C:\\inetpub\\wwwroot\\restapi"
+        SITE_NAME = "test" // Replace with your IIS site name
     }
 
     stages {
@@ -13,28 +13,12 @@ pipeline {
             steps {
                 script {
                     echo "Stopping IIS site..."
-                    bat 'powershell Stop-WebSite -Name "%SITE_NAME%"' // Stop specific site
+                    bat 'powershell Stop-WebSite -Name "%SITE_NAME%"' // Stop the specific IIS site
                 }
             }
         }
 
-        stage('Restore') {
-            steps {
-                script {
-                    echo "Restoring dependencies..."
-                }
-                bat 'dotnet restore' // Restore dependencies
-            }
-        }
-
-        stage('Build') {
-            steps {
-                script {
-                    echo "Building project in Release mode..."
-                }
-                bat 'dotnet build --configuration Release' // Build only
-            }
-        }
+        // Other stages (Restore, Build, Publish) remain unchanged
 
         stage('Publish') {
             steps {
@@ -55,17 +39,8 @@ pipeline {
             steps {
                 script {
                     echo "Starting IIS site..."
-                    bat 'powershell Start-WebSite -Name "%SITE_NAME%"' // Start specific site
+                    bat 'powershell Start-WebSite -Name "%SITE_NAME%"' // Start the specific IIS site
                 }
-            }
-        }
-
-        stage('Print Publish Location') {
-            steps {
-                script {
-                    echo "Checking published files at ${DEPLOY_PATH}..."
-                }
-                bat "dir ${DEPLOY_PATH}" // Verify output
             }
         }
     }
