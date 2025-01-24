@@ -35,7 +35,7 @@ namespace OneLearn.Api.Controllers
         */
         [HttpPatch("{id:int}")]
 
-        public async Task<IActionResult> UpdateTestPatch1(int id, [FromBody] JsonPatchDocument<UpdateTestDto> patchDocument)
+        public async Task<IActionResult> UpdateTestPatch(int id, [FromBody] JsonPatchDocument<UpdateTestDto> patchDocument)
         {
             await _testService.UpdatePatchTestAsync(id, patchDocument);
             return Ok();
