@@ -8,14 +8,6 @@ pipeline {
     }
 
     stages {
-        stage('Stop IIS') {
-            steps {
-                script {
-                    echo "Stopping IIS server..."
-                    bat 'iisreset /stop' // Stop IIS
-                }
-            }
-        }
         
         stage('Restore') {
             steps {
@@ -32,6 +24,15 @@ pipeline {
                     echo "Building project in Release mode..."
                 }
                 bat 'dotnet build --configuration Release' // Build only
+            }
+        }
+        
+        stage('Stop IIS') {
+            steps {
+                script {
+                    echo "Stopping IIS server..."
+                    bat 'iisreset /stop' // Stop IIS
+                }
             }
         }
         
