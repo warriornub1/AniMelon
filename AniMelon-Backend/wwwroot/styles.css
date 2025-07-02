@@ -1,0 +1,21 @@
+﻿body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: black;
+    color: white;
+}
+
+#videoPlayer {
+    width: 640px;
+    height: 360px;
+}
+
+#status {
+    margin-top: 10px;
+    color: green;
+}
+
+#error {
+    margin-top: 10px;
+    color: red;
+}
