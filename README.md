@@ -1,4 +1,4 @@
-# Animocha
+<img width="1916" height="1031" alt="image" src="https://github.com/user-attachments/assets/c8129a87-b50d-4308-a284-e8055a67ad28" /># Animocha
 A simple dual-subtitle video player inspired by [Animelon](http://animelon.com/).
 
 
@@ -17,6 +17,7 @@ A simple dual-subtitle video player inspired by [Animelon](http://animelon.com/)
 
 
 ![Screenshot](https://github.com/warriornub1/AniMelon/blob/master/Images/VideoPlayer.png?raw=true)
+![Screenshot](https://github.com/warriornub1/AniMelon/blob/master/Images/VideoPlayer1.png?raw=true)
 
 
 ### With Thanks To
