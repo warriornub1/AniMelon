@@ -1,4 +1,4 @@
-<img width="1916" height="1031" alt="image" src="https://github.com/user-attachments/assets/c8129a87-b50d-4308-a284-e8055a67ad28" /># Animocha
+# Animocha
 A simple dual-subtitle video player inspired by [Animelon](http://animelon.com/).
 
 
