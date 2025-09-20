@@ -3,9 +3,10 @@ A simple dual-subtitle video player inspired by [Animelon](http://animelon.com/)
 
 
 ### Installation
-Open AniMelon-Backend.sln using Microsoft VisualStudio
-Compile the codes
-Enjoy!
+- Open AniMelon-Backend.sln using Microsoft VisualStudio
+- Compile the codes
+- Enjoy!
+![Screenshot]
 
 
 ### Features
@@ -15,7 +16,7 @@ Enjoy!
 - Supports most codecs (including h.265 video)
 
 
-![Screenshot](screenshot.png?raw=true)
+![Screenshot](https://github.com/warriornub1/AniMelon/blob/master/Images/Compilation.png?raw=true)
 
 
 ### With Thanks To
