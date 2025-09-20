@@ -31,7 +31,7 @@ export function getSearchResult(searchResult) {
     let html = "";
     if (searchResult.vocabs.length) {
         let entriesHTML = '';
-        for (const vocabResult of searchResult.vocabs[0]) {
+        for (const vocabResult of searchResult.vocabs) {
             for (const matchEntry of vocabResult[2]) {
                 let sensesHTML = '';
                 let count = 1;
