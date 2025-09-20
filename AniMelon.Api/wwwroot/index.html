@@ -1,0 +1,136 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dual Subtitle Player</title>
+        <link rel="stylesheet" href="https://vjs.zencdn.net/7.20.3/video-js.css"/>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    </head>
+    <body>
+
+        <div class="container">
+            <!-- Fullscreen wrapper -->
+            <div class="video-wrapper" id="videoContainer">
+                <div class="video-player-container">
+                    <video id="video" class="video-js vjs-default-skin"></video>
+                </div>
+
+                <div class="definition-card">
+                    <button id="closeButton"><i class="fa-solid fa-xmark"></i></button>
+                    <div class="card"></div>
+                </div>
+
+                <!-- Subtitle overlay -->
+                <div class="subtitle-overlay">
+                    <div id="subtitle-1" class="subtitle-line ja"></div>
+                    <div id="subtitle-2" class="subtitle-line en"></div>
+                </div>
+
+                <!-- Fullscreen button -->
+                <div class="wrapper">
+
+                    <div class="video-timeline">
+                        <div class="progress-area">
+                            <span>00:00</span>
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+
+                    <ul class="video-controls">
+                        <li class="options left">
+                            <button class="volume"><i class="fa-solid fa-volume-high"></i></button>
+                            <input type="range" min="0" max="1" step="any">
+                            <div class="video-timer">
+                                <p class="current-time">00:00</p>
+                                <p class="separator">/</p>
+                                <p class="video-duration">00:00</p>
+                            </div>
+                        </li>
+                        <li class="options center">
+                            <button class="skip-backward"><i class="fas fa-backward"></i></button>
+                            <button class="play-pause"><i class="fas fa-play"></i></button>
+                            <button class="skip-forward"><i class="fas fa-forward"></i></button>
+                        </li>
+
+                        <li class="options right">
+                            <input type="file" id="fileInput" accept=".mkv" />
+                            <button id="customButton">Open File...</button>
+                            <button id="ccButton"
+                                    class="ytp-subtitles-button ytp-button"
+                                    aria-keyshortcuts="c"
+                                    data-title-no-tooltip="Subtitles/closed captions"
+                                    aria-pressed="false"
+                                    aria-label="Subtitles/closed captions keyboard shortcut c"
+                                    title="Subtitles/closed captions (c)">
+
+                                <svg class="ytp-subtitles-button-icon"
+                                     viewBox="0 0 36 36">
+                                    <path d="M11,11 C9.89,11 9,11.9 9,13 L9,23 C9,24.1 9.89,25 11,25 L25,25 C26.1,25 27,24.1 27,23 L27,13 C27,11.9 26.1,11 25,11 L11,11 Z
+                  M17,17 L15.5,17 L15.5,16.5 L13.5,16.5 L13.5,19.5 L15.5,19.5 L15.5,19 L17,19 L17,20 C17,20.55 16.55,21 16,21 L13,21 C12.45,21 12,20.55 12,20 L12,16
+                  C12,15.45 12.45,15 13,15 L16,15 C16.55,15 17,15.45 17,16 L17,17 Z
+                  M24,17 L22.5,17 L22.5,16.5 L20.5,16.5 L20.5,19.5 L22.5,19.5 L22.5,19 L24,19 L24,20
+                  C24,20.55 23.55,21 23,21 L20,21 C19.45,21 19,20.55 19,20 L19,16 C19,15.45 19.45,15 20,15
+                  L23,15 C23.55,15 24,15.45 24,16 L24,17 Z"
+                                          fill="#fff" />
+                                </svg>
+                            </button>
+                            <input type="file" id="subtitleFileInput" accept=".srt" style="display: none;" />
+
+
+                            <!--<button id="ccButton1"
+                                class="ytp-subtitles-button ytp-button"
+                                aria-keyshortcuts="c"
+                                data-title-no-tooltip="Subtitles/closed captions"
+                                aria-pressed="false"
+                                aria-label="Japanese Subtitles/closed captions keyboard shortcut c"
+                                title="Japanese Subtitles/closed captions (c)">
+
+                            <svg class="ytp-subtitles-button-icon" height="100%" width="100%" viewBox="0 0 36 36">
+                                <path d="M11,11 C9.89,11 9,11.9 9,13 L9,23 C9,24.1 9.89,25 11,25 L25,25 C26.1,25 27,24.1 27,23 L27,13 C27,11.9 26.1,11 25,11 L11,11 Z
+                          M17,17 L15.5,17 L15.5,16.5 L13.5,16.5 L13.5,19.5 L15.5,19.5 L15.5,19 L17,19 L17,20 C17,20.55 16.55,21 16,21 L13,21 C12.45,21 12,20.55 12,20 L12,16
+                          C12,15.45 12.45,15 13,15 L16,15 C16.55,15 17,15.45 17,16 L17,17 Z
+                          M24,17 L22.5,17 L22.5,16.5 L20.5,16.5 L20.5,19.5 L22.5,19.5 L22.5,19 L24,19 L24,20
+                          C24,20.55 23.55,21 23,21 L20,21 C19.45,21 19,20.55 19,20 L19,16 C19,15.45 19.45,15 20,15
+                          L23,15 C23.55,15 24,15.45 24,16 L24,17 Z"
+                                      fill="#fff" />
+                            </svg>
+                        </button>-->
+
+                            <div class="subtitle-controls">
+                                <select id="subtitle-select">
+                                    <option value="none">None</option>
+                                </select>
+                            </div>
+
+                            <div class="playback-content">
+                                <button class="playback-speed"><span class="material-symbols-rounded">slow_motion_video</span></button>
+                                <ul class="speed-options">
+                                    <li data-speed="2">2x</li>
+                                    <li data-speed="1.5">1.5x</li>
+                                    <li data-speed="1" class="active">Normal</li>
+                                    <li data-speed="0.75">0.75x</li>
+                                    <li data-speed="0.5">0.5x</li>
+                                </ul>
+                            </div>
+                            <button class="pic-in-pic"><span class="material-icons">picture_in_picture_alt</span></button>
+                            <button class="fullscreen" id="fullscreen"><i class="fa-solid fa-expand"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sidebar with subtitles -->
+            <div class="sidebar" id="subtitlesPanel"></div>
+        </div>
+
+        <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-hls@5.15.0/dist/videojs-contrib-hls.min.js"></script>
+        <script src="https://unpkg.com/tiny-segmenter"></script>
+        <script type="module" src="script.js"></script>
+    </body>
+    </html>
