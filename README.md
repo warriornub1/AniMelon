@@ -17,6 +17,7 @@ A simple dual-subtitle video player inspired by [Animelon](http://animelon.com/)
 
 
 ![Screenshot](https://github.com/warriornub1/AniMelon/blob/master/Images/VideoPlayer.png?raw=true)
+![Screenshot](https://github.com/warriornub1/AniMelon/blob/master/Images/VideoPlayer1.png?raw=true)
 
 
 ### With Thanks To
