@@ -1,5 +1,4 @@
 ﻿import { init, getSearchResult, searchWord } from './search.js';
-import { getDeinflectRuleGroups, deinflect } from './deinfect.js';
 
 const fileInput = document.getElementById('fileInput');
 const uploadButton = document.getElementById('customButton');
@@ -25,6 +24,8 @@ const video = document.getElementById('video');
 const card = document.querySelector('.card');
 const definitionCard = document.querySelector('.definition-card');
 const closeButton = document.querySelector('#closeButton');
+const fullscreenButton = document.getElementById("fullscreen");
+const videoContainer = document.getElementById("videoContainer");
 
 let duration = 0;
 const sub1Map = new Map();
@@ -88,6 +89,17 @@ subtitleFileInput.addEventListener('change', (e) => {
     };
 
     reader.readAsText(file);
+})
+
+fullscreenButton.addEventListener("click", () => {
+    if (!document.fullscreenElement) {
+        videoContainer.requestFullscreen().catch(err => {
+            console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+    }
+    else {
+        document.exitFullscreen();
+    }
 })
 
 // move time line
@@ -177,7 +189,6 @@ player.on("play", () => playPauseBtn.classList.replace("fa-play", "fa-pause"));
 player.on("pause", () => playPauseBtn.classList.replace("fa-pause", "fa-play"));
 
 playPauseBtn.addEventListener("click", () => {
-    console.log("clicked")
     if (player.paused()) {
         player.play();
     } else {
@@ -429,6 +440,7 @@ player.on('timeupdate', e => {
     const subOne = sub1Map.get(t);
     const newSub1Text = subOne?.text || '';
     if (subtitle1.innerHTML !== newSub1Text) {
+        subtitle1.classList.add("active");
         subtitle1.innerHTML = newSub1Text;
     }
 
@@ -440,6 +452,7 @@ player.on('timeupdate', e => {
     if (newSub2Text !== lastSubTwoText) {
         lastSubTwoText = newSub2Text;
         subtitle2.innerHTML = ''; // Clear previous words
+        subtitle2.classList.add("active");
 
         if (newSub2Text) {
             const words = segmenter.segment(newSub2Text);

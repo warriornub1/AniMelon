@@ -112,6 +112,22 @@ body {
     padding: 1rem 0;
 }
 
+#subtitle-1 {
+    display: none;
+}
+
+#subtitle-1.active {
+    display: block;
+}
+
+#subtitle-2 {
+    display: none;
+}
+
+#subtitle-2.active {
+    display: block;
+}
+
 .subtitle-overlay {
     position: absolute;
     bottom: 8%;
