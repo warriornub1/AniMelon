@@ -21,12 +21,12 @@ A simple dual-subtitle video player inspired by [Animelon](http://animelon.com/)
 
 
 ### React frontpage
-run npm install
-run npm run dev
+- run npm install
+- run npm run dev
+- Search page and integration with video player is still under construction
 <img width="2716" height="1660" alt="image" src="https://github.com/user-attachments/assets/100c5935-534e-4685-826c-6db54a5ce0ff" />
 <img width="1858" height="1598" alt="image" src="https://github.com/user-attachments/assets/d3384ea6-e7ba-40a8-8b45-4dad8eacec07" />
 <img width="1868" height="1468" alt="image" src="https://github.com/user-attachments/assets/c16c21a9-4db4-4fb3-80c2-86fd972cc8c1" />
-Search page and integration with video player is still under construction
 
 
 ### With Thanks To
